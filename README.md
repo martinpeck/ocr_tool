@@ -2,6 +2,17 @@
 
 A Python script that uses Azure Congitize Services to OCR text from images.
 
+## An Illustration
+
+![image with handwritten text](images/example2.jpg)
+
+``` text
+$ python main.py file --filepath images/example2.jpg
+This is an example of some
+text. I wonder if it will
+get extracted perfectly
+```
+
 ## Usage
 
 This tool allows two types of operation; you can either ask it to stream a local image to the Azure services,
