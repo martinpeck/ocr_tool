@@ -20,18 +20,24 @@ def cli():
 
 
 @cli.command("file")
-@click.argument("filename", type=click.Path(exists=True))
-def perform_ocr_of_local_file(filename):
+@click.option("--filepath", type=click.Path(exists=True), required=True, help="Submits a local file to OCR")
+def perform_ocr_of_local_file(filepath):
+    """
+    Sends a local file to OCR to extract text
+    """
     client = create_computer_vision_client()
-    ocr_result = ocr_file(client, filename)
+    ocr_result = ocr_file(client, filepath)
     lines = extract_text_from_ocr_result(client, ocr_result)
     for line in lines:
         print(line)
 
 
 @cli.command("url")
-@click.argument("url")
+@click.option("--url", required=True, help="Submits a public url to OCR")
 def perform_ocr_of_remote_file(url):
+    """
+    Sends a file, accessible via a public url, to OCR to extract text
+    """
     client = create_computer_vision_client()
     ocr_result = ocr_url(client, url)
     lines = extract_text_from_ocr_result(client, ocr_result)
