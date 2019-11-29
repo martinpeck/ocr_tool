@@ -10,7 +10,7 @@ or you can pass the URL to a publicly accessible image.
 If you run the script without any parameters you will see the following help text:
 
 ``` bash
-$ python main.py --help     
+$ python main.py --help
 Usage: main.py [OPTIONS] COMMAND [ARGS]...
 
 Options:
